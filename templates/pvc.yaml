@@ -1,0 +1,12 @@
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  name: {{ include "redisjson.fullname" . }}
+spec:
+  accessModes:
+    - ReadWriteMany
+  storageClassName: {{ include "redisjson.fullname" . }}
+  resources:
+    requests:
+      storage: {{ .Values.storage.quota }}
+

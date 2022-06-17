@@ -1,0 +1,12 @@
+apiVersion: storage.k8s.io/v1
+kind: StorageClass
+metadata:
+  name: {{ include "redisjson.fullname" . }}
+provisioner: file.csi.azure.com
+allowVolumeExpansion: true
+parameters:
+  #protocol: nfs
+  skuName: Premium_LRS
+mountOptions:
+  - mfsymlinks
+  - actimeo=30
